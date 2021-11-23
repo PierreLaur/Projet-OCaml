@@ -1,24 +1,21 @@
-%% Test graph #1
+% This is a graph.
 
-%% Nodes
+n 20 300 0
+n 200 300 1
+n 200 200 2
+n 200 400 3
+n 380 300 4
+n 380 200 5
 
-n 88 209     % This is node #0, with its coordinates (which are not used by the algorithms).
-n 408 183
-n 269 491
-n 261 297
-n 401 394
-n 535 294    % This is node #5.
+e 0 2 0 8
+e 0 3 1 10
+e 0 1 2 7
+e 2 4 3 12
+e 3 4 4 5
+e 3 2 5 2
+e 3 1 6 11
+e 1 4 7 1
+e 1 5 8 21
+e 4 5 9 14
 
-
-%% Edges
-
-e 3 1 11     % An edge from 3 to 1, labeled "11".
-e 3 2 2
-e 1 5 21
-e 4 5 14
-e 1 4 1
-e 0 1 7
-e 0 3 10
-e 3 4 5
-e 2 4 12
-e 0 2 8
+% End of graph

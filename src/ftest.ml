@@ -27,7 +27,7 @@ let () =
   (* Rewrite the graph that has been read. *)
   let graph = gmap graph (fun x->x^"o") in
   let () = write_file outfile graph in
-
+  let () = export (outfile^".chama") graph in
   ()
 
 

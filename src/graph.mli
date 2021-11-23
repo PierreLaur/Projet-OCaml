@@ -5,6 +5,7 @@ type 'a graph
 (* Each node has a unique identifier (a number). *)
 type id = int
 
+exception Graph_error of string
 
 (**************  CONSTRUCTORS  **************)
 

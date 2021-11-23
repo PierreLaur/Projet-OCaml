@@ -11,22 +11,11 @@ let gmap gr f =
   e_fold gr aux (clone_nodes gr)
 ;;
 
-let add_arc g id1 id2 n = assert false
-
-(*
-  let rec find_arc y id2 n = match y with
-    | [] -> new_arc gr id1 id2 n
-    | (dest,value) :: rest -> 
-      if dest=id2 then new_arc gr id1 id2 (value+n)
-      else find_arc rest id2 n
-  in
-  let rec find_node gr id1 = match gr with
-    | [] -> raise Graph_error "node not found"
-    | (x,y) :: rest -> 
-      if x=id1 then find_arc y id2 n
-      else find_node rest id1
-  in
-  find_node g id1 ;;
-
-
-*)
+let add_arc g id1 id2 n = 
+  if ((node_exists g id1)&&(node_exists g id2))=false
+  then raise (Graph_error "Node not found")
+  else
+    match find_arc g id1 id2 with
+    | None -> new_arc g id1 id2 n
+    | Some value -> new_arc g id1 id2 (n+value)
+;;
