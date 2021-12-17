@@ -1,0 +1,13 @@
+% Graph saved at Fri Dec 03 2021 10:17:41 GMT+0100 (heure normale d’Europe centrale)
+n 100 250 0
+n 200 250 1
+n 350 100 2
+n 350 400 3
+n 500 250 4
+n 600 250 5
+e 3 1 0 5
+e 1 2 1 10
+e 4 3 2 5
+e 2 4 3 7
+e 4 5 4 15
+e 0 1 5 10

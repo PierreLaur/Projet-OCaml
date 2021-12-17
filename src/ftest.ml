@@ -1,5 +1,6 @@
 open Gfile
 open Tools
+open FordFulkerson
 
 let () =
 
@@ -17,15 +18,22 @@ let () =
   and outfile = Sys.argv.(4)
 
   (* These command-line arguments are not used for the moment. *)
-  and _source = int_of_string Sys.argv.(2)
-  and _sink = int_of_string Sys.argv.(3)
+  and source = int_of_string Sys.argv.(2)
+  and sink = int_of_string Sys.argv.(3)
   in
 
   (* Open file *)
   let graph = from_file infile in
 
   (* Rewrite the graph that has been read. *)
-  let graph = gmap graph (fun x->x^"o") in
+  let graph= gmap graph int_of_string in
+  let graph = run graph source sink in
+  (* let chemin = List.map string_of_int (List.rev(find_path graph source sink)) in
+     Printf.printf "chemin =%s\n" (String.concat " " chemin) ;
+     let chemin = List.map int_of_string chemin in
+     Printf.printf "capacité minimale =%d\n" (min_capacity graph chemin max_int) ;
+     let graph = adjust_graph graph chemin (-150) in *)
+  let graph = gmap graph string_of_int in
   let () = write_file outfile graph in
   let () = export (outfile^".chama") graph in
   ()
