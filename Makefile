@@ -18,3 +18,8 @@ demo: build
 clean:
 	-rm -rf _build/
 	-rm ftest.native
+
+tricount:
+	@echo "\n==== COMPILING ====\n"
+	ocamlbuild testTriCount.native
+	./testTriCount.native testTriCount resTriCount

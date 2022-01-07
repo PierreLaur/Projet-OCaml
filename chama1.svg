@@ -9,21 +9,21 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
 <title>finite_state_machine</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-40 313,-40 313,4 -4,4"/>
-<!-- 5 -->
+<!-- 3 -->
 <g id="node1" class="node">
-<title>5</title>
+<title>3</title>
 <ellipse fill="none" stroke="black" cx="18" cy="-18" rx="18" ry="18"/>
-<text text-anchor="middle" x="18" y="-14.3" font-family="Times,serif" font-size="14.00">5</text>
+<text text-anchor="middle" x="18" y="-14.3" font-family="Times,serif" font-size="14.00">3</text>
 </g>
-<!-- 4 -->
+<!-- 2 -->
 <g id="node2" class="node">
-<title>4</title>
+<title>2</title>
 <ellipse fill="none" stroke="black" cx="109" cy="-18" rx="18" ry="18"/>
-<text text-anchor="middle" x="109" y="-14.3" font-family="Times,serif" font-size="14.00">4</text>
+<text text-anchor="middle" x="109" y="-14.3" font-family="Times,serif" font-size="14.00">2</text>
 </g>
-<!-- 5&#45;&gt;4 -->
+<!-- 3&#45;&gt;2 -->
 <g id="edge1" class="edge">
-<title>5&#45;&gt;4</title>
+<title>3&#45;&gt;2</title>
 <path fill="none" stroke="black" d="M36.16,-18C48.72,-18 66.02,-18 80.5,-18"/>
 <polygon fill="black" stroke="black" points="80.89,-21.5 90.89,-18 80.89,-14.5 80.89,-21.5"/>
 <text text-anchor="middle" x="63.5" y="-21.8" font-family="Times,serif" font-size="14.00">10</text>
@@ -34,9 +34,9 @@
 <ellipse fill="none" stroke="black" cx="200" cy="-18" rx="18" ry="18"/>
 <text text-anchor="middle" x="200" y="-14.3" font-family="Times,serif" font-size="14.00">0</text>
 </g>
-<!-- 4&#45;&gt;0 -->
+<!-- 2&#45;&gt;0 -->
 <g id="edge2" class="edge">
-<title>4&#45;&gt;0</title>
+<title>2&#45;&gt;0</title>
 <path fill="none" stroke="black" d="M127.16,-18C139.72,-18 157.02,-18 171.5,-18"/>
 <polygon fill="black" stroke="black" points="171.89,-21.5 181.89,-18 171.89,-14.5 171.89,-21.5"/>
 <text text-anchor="middle" x="154.5" y="-21.8" font-family="Times,serif" font-size="14.00">10</text>
