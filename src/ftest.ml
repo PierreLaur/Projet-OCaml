@@ -27,12 +27,14 @@ let () =
 
   (* Rewrite the graph that has been read. *)
   let graph= gmap graph int_of_string in
-  let graph = run graph sink source in
+  let graph = run graph source sink in
   let graph = gmap graph string_of_int in
 
 
   let () = write_file outfile graph in
-  let () = export (outfile^".chama") graph in
+  let () = export (outfile^".result") graph in
+
+
   ()
 
 

@@ -9,11 +9,12 @@ format:
 edit:
 	code . -n
 
-demo: build
+ford: build
 	@echo "\n==== EXECUTING ====\n"
-	./ftest.native graphs/graphloop 0 5 outfile
+	./ftest.native graphs/graph1 0 5 outfile	
 	@echo "\n==== RESULT ==== (content of outfile) \n"
-	@cat outfile
+	dot -Tsvg outfile.result > result.svg
+	xdg-open result.svg
 
 clean:
 	-rm -rf _build/
@@ -22,4 +23,4 @@ clean:
 tricount:
 	@echo "\n==== COMPILING ====\n"
 	ocamlbuild testTriCount.native
-	./testTriCount.native testTriCount resTriCount
+	./testTriCount.native lists/testTriCount

@@ -57,9 +57,3 @@ let run g ids idp =
   in
   aux g flux_init
 ;;
-
-
-
-
-(* - faire une liste (pile) pour noter les noeuds visités & éviter ls boucles
-   - rappeler out_arcs à partir de différents ndes*)

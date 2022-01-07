@@ -4,7 +4,9 @@ open Tools
 open FordFulkerson
 
 let create_graph listePersonnes = 
+  (* len = nombre de personnes *)
   let len = List.length listePersonnes  in
+  (* moyenne des montants payés*)
   let moyenne =
     let rec aux liste =
       match liste with 
@@ -35,8 +37,6 @@ let create_graph listePersonnes =
 
 
   let createInternalArcs graphe = 
-    (* val n_fold: 'a graph -> ('b -> id -> 'b) -> 'b -> 'b *)
-    (* val new_arc: 'a graph -> id -> id -> 'a -> 'a graph *)
 
     (* pour un node idFrom dans un graphe donné, createArcsFrom crée des arcs vers les autres nodes*)
     (* on exclut les id impairs (nodes auxiliaires) *)
@@ -66,34 +66,36 @@ let create_graph listePersonnes =
   in createdGraph
 
 let triCount listePersonnes =
+  Printf.printf "\n==================================\n" ;
   let graph = create_graph listePersonnes in
 
-  (* applique le max-flow algorithm depuis toutes les nodes sources vers toutes les nodes puits *)
+  (* applique le max-flow algorithm depuis toutes les nodes auxiliaires sources vers toutes les nodes auxiliaires puits *)
   let runOnNodes = 
 
-    let runFrom gr idFrom =
+    let runFrom idFrom =
+      let runTo idTo =
+        (* on vérifie que les nodes sont auxiliaires (id impairs), que la node "idFrom" est source et qu'idFrom et idTo sont différentes *)
+        let isSource id = (find_arc graph id (id-1))!=None in
+        if ((idTo mod 2==1) && (idTo != idFrom) && (isSource idFrom)) then
+          let result = run graph idFrom idTo in
 
-      let runTo gr2 idTo =
-        if ((idTo mod 2==1) && (idTo != idFrom)) then
-          if ((find_arc gr2 idFrom (idFrom-1))!=None) then
-            let result = run gr2 idFrom idTo in
-            let (person1, _) = List.nth listePersonnes ((idFrom-1)/2) in
-            let (person2, _) = List.nth listePersonnes ((idTo-1)/2) in
-            match (find_arc result idFrom (idFrom-1)) with
-            | Some x -> Printf.printf "%s doit payer %d à %s\n" person1 x person2 ; gr2
-            | None -> gr2
-          else gr2
-        else gr2
+          (* on trouve les noms des personnes correspondant aux ids concernés *)
+          let (person1, _) = List.nth listePersonnes ((idFrom-1)/2) in
+          let (person2, _) = List.nth listePersonnes ((idTo-1)/2) in
+          (* le résultat est le flux maximal partant de la source : la valeur sur l'arc qui en part *)
+          match (find_arc result idFrom (idFrom-1)) with
+          | Some x -> Printf.printf "%s doit payer %d à %s\n" person1 x person2 ;
+          | None -> ()
       in
 
       if (idFrom mod 2==1) then
-        n_fold gr runTo gr
-      else gr
+        n_iter graph runTo
     in
 
-    n_fold graph runFrom graph 
+    n_iter graph runFrom
   in
-  runOnNodes
+  runOnNodes ;
+  Printf.printf "==================================\n\n"
 
 let read_list path =
   let read_tuple line liste =
