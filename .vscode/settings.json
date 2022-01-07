@@ -3,5 +3,8 @@
         "*.ml": "ocaml",
         "*.mli": "ocaml"
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "ocaml.sandbox": {
+        "kind": "global"
+    }
 }
